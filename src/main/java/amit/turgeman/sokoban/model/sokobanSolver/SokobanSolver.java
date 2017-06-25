@@ -1,15 +1,6 @@
 package amit.turgeman.sokoban.model.sokobanSolver;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.io.PrintWriter;
-
-import amit.turgeman.sokoban.model.utilities.Utils;
-import model.data.level.GeneralLevelLoaderCreator;
-import model.data.level.Level;
-import model.data.level.LevelCreator;
-import model.data.util.Utilities;
 import strips.Plannable;
 import strips.Strips;
 
@@ -28,22 +19,14 @@ public class SokobanSolver {
 		this.levelName=levelName;
 	}
 	
-	public void loadLevel()
-	{
-		try {
-			String path = Utils.Path;
-			LevelCreator lc = new LevelCreator(new FileInputStream(path+"\\Hash Maps\\"+"saveHashMap.obj"),new FileInputStream(path+"\\Hash Maps\\"+"loadHashMap.obj"));
-			GeneralLevelLoaderCreator gllc = lc.getLoadHashMap().get(Utilities.getExtension(levelName));
-			InputStream is = new FileInputStream(path+"\\Level Files\\"+levelName);
-			sokobanModel.loadLevel(gllc.create(), is);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		plannable=sokobanModel.readLevel();
+	public String getLevelName() {
+		return levelName;
 	}
-	
+
+	public void setLevelName(String levelName) {
+		this.levelName = levelName;
+	}
+
 	public SokobanSolver(Level level) {
 		sokobanModel = new SolverModel();
 		sokobanView = new SolverView();
