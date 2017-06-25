@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 
+import amit.turgeman.sokoban.model.utilities.Utils;
 import model.data.level.GeneralLevelLoaderCreator;
 import model.data.level.Level;
 import model.data.level.LevelCreator;
@@ -30,7 +31,7 @@ public class SokobanSolver {
 	public void loadLevel()
 	{
 		try {
-			String path = "C:\\Users\\Amit\\git\\SokobanGUI";
+			String path = Utils.Path;
 			LevelCreator lc = new LevelCreator(new FileInputStream(path+"\\Hash Maps\\"+"saveHashMap.obj"),new FileInputStream(path+"\\Hash Maps\\"+"loadHashMap.obj"));
 			GeneralLevelLoaderCreator gllc = lc.getLoadHashMap().get(Utilities.getExtension(levelName));
 			InputStream is = new FileInputStream(path+"\\Level Files\\"+levelName);

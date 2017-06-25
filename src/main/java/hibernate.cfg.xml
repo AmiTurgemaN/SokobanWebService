@@ -5,7 +5,7 @@
 	<session-factory>
 		<!-- Database connection settings -->
 		<property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-		<property name="connection.url">jdbc:sqlserver://localhost:1433;database=Sokoban;</property>
+		<property name="connection.url">jdbc:sqlserver://localhost:1433;database=SokobanWebService;</property>
 		<property name="connection.username">AmiturgemaN</property>
 	    <property name="connection.password">12341234</property>
 		<!-- JDBC connection pool (use the built-in) -->

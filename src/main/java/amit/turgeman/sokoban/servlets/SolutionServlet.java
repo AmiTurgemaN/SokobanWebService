@@ -1,5 +1,6 @@
-package amit.turgeman.sokoban.resources;
+package amit.turgeman.sokoban.servlets;
 
+import java.io.File;
 import java.util.HashMap;
 
 import javax.ws.rs.GET;
@@ -11,10 +12,10 @@ import javax.ws.rs.core.MediaType;
 import amit.turgeman.sokoban.model.Solution;
 import amit.turgeman.sokoban.model.SolutionManager;
 import amit.turgeman.sokoban.model.sokobanSolver.SokobanSolver;
+import amit.turgeman.sokoban.model.utilities.Utils;
 
 @Path("/solutions")
-public class SolutionResource {
-
+public class SolutionServlet {
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String getSolutions()
@@ -32,6 +33,8 @@ public class SolutionResource {
 	public String getSolution(@PathParam("levelName") String levelName)
 	{
 		levelName=levelName.toLowerCase();
+		if(!levelExist(levelName))
+			return "Level Does Not Exist";
 		SolutionManager sm = new SolutionManager();
 		String compressedSolution = sm.getSolutionHash().get(levelName); 
 		if(compressedSolution!=null)
@@ -44,6 +47,15 @@ public class SolutionResource {
 			sm.addSolution(new Solution(levelName,uncompressedSolution));
 			return uncompressedSolution;
 		}
+	}
+
+	private boolean levelExist(String levelName) {
+		File[] listOfFiles = new File(Utils.Path+"\\Level Files").listFiles();
+		for (int i = 0; i < listOfFiles.length; i++) {
+			if (listOfFiles[i].isFile() && listOfFiles[i].getName().toLowerCase().equals(levelName)) 
+				return true;
+		}
+		return false;
 	}
 	
 }

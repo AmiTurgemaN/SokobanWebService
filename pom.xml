@@ -3,11 +3,11 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>amit.turgeman</groupId>
+	<groupId>SokobanWebService</groupId>
 	<artifactId>sokoban</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sokoban</name>
+	<name>SokobanWebService</name>
 
 	<build>
 		<finalName>sokoban</finalName>
