@@ -1,0 +1,2 @@
+That folder must exist in the project,
+therefore I've added a text file that will ensure that the folder will imported. 
