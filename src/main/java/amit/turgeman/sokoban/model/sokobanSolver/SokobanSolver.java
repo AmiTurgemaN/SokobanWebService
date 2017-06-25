@@ -109,4 +109,11 @@ public class SokobanSolver {
 	public void setPlannable(Plannable plannable) {
 		this.plannable = plannable;
 	}
+
+	public void loadLevel(String levelString) {
+		Level level = new Level();
+		level.setLevelString(levelString);
+		sokobanModel.setLevel(level);
+		plannable=sokobanModel.readLevel();
+	}
 }
