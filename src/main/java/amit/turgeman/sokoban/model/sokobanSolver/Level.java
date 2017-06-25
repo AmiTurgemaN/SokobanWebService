@@ -6,6 +6,10 @@ public class Level {
 	public Level() {
 		super();
 	}
+	public Level(String levelString) {
+		super();
+		this.levelString = levelString;
+	}
 	public String getLevelString() {
 		return levelString;
 	}
